@@ -1,12 +1,16 @@
 pluginManagement {
 	repositories {
 		maven {
-			name = 'Fabric'
-			url = 'https://maven.fabricmc.net/'
+			name = "Fabric"
+			url = "https://maven.fabricmc.net/"
 		}
-		mavenCentral()
+		maven {
+			name = "legacy-fabric"
+			url = "https://repo.legacyfabric.net/repository/legacyfabric/"
+		}
 		gradlePluginPortal()
 	}
 }
+
 
 rootProject.name = "fabric-language-kotlin"
