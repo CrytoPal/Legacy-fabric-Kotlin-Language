@@ -9,8 +9,9 @@ Fabric language module for [Kotlin](https://kotlinlang.org/). Adds support for K
 ## Usage
 
 To build this do the command
-
+```
 ./gradlew build publishMods publish :spotlessApply
+```
 
 ### Dependency
 
