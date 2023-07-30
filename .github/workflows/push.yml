@@ -17,7 +17,7 @@ jobs:
           distribution: 'temurin'
 
       - name: 'Build'
-        run: ./gradlew build publishMods --stacktrace --warning-mode=fail
+        run: ./gradlew build publishMods publish :spotlessApply
 
       - name: 'Upload artifacts'
         if: ${{ matrix.java == '20' }}
