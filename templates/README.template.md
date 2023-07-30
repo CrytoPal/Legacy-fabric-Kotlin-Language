@@ -14,7 +14,7 @@ Add it as a dependency to your Gradle project:
 
 ```kotlin
 dependencies {
-    modImplementation("net.fabricmc:fabric-language-kotlin:1.10.8+kotlin.1.9.0")
+    modImplementation("net.fabricmc:fabric-language-kotlin:${MOD_VERSION}")
 }
 ```
 
@@ -35,7 +35,7 @@ Remember to the add a dependency entry to your `fabric.mod.json` file:
         ]
     },
     "depends": {
-        "fabric-language-kotlin": ">=1.10.8+kotlin.1.9.0"
+        "fabric-language-kotlin": ">=${MOD_VERSION}"
     }
 }
 ```
@@ -145,7 +145,7 @@ object MyMod  {
 ```json
 {
     "adapter": "kotlin",
-    "value": "mymod.MyMod$Companion"
+    "value": "mymod.MyMod\$Companion"
 }
 ```
 
@@ -166,7 +166,7 @@ class MyMod {
 ```json
 {
     "adapter": "kotlin",
-    "value": "mymod.MyMod$Companion::init"
+    "value": "mymod.MyMod\$Companion::init"
 }
 ```
 
@@ -187,7 +187,7 @@ class MyMod  {
 ```json
 {
     "adapter": "kotlin",
-    "value": "mymod.MyMod$Companion::initializer"
+    "value": "mymod.MyMod\$Companion::initializer"
 }
 ```
 
@@ -230,23 +230,23 @@ fun init() {
 </tr>
 </table>
 
-Companion objects can be used by appending `$Companion` to the class.
+Companion objects can be used by appending `\$Companion` to the class.
 **Take care of `processResources` there**, it might try to expand it, in that case escape it.
 
 ## Bundled libraries
 
 `org.jetbrains.kotlin` namespace:
-- **`kotlin-stdlib`** 1.9.0 [Docs](https://kotlinlang.org/docs/home.html), [API docs](https://kotlinlang.org/api/latest/jvm/stdlib/), [GitHub](https://github.com/JetBrains/kotlin)
-- **`kotlin-reflect`** 1.9.0 [Docs](https://kotlinlang.org/docs/reflection.html), [API docs](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/)
+- **`kotlin-stdlib`** ${KOTLIN_STDLIB_VERSION} [Docs](https://kotlinlang.org/docs/home.html), [API docs](https://kotlinlang.org/api/latest/jvm/stdlib/), [GitHub](https://github.com/JetBrains/kotlin)
+- **`kotlin-reflect`** ${KOTLIN_REFLECT_VERSION} [Docs](https://kotlinlang.org/docs/reflection.html), [API docs](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/)
 
 `org.jetbrains.kotlinx` namespace:
-- **`kotlinx-coroutines-core`** 1.7.2 [Guide](https://kotlinlang.org/docs/coroutines-guide.html), [API docs](https://kotlin.github.io/kotlinx.coroutines/), [GitHub](https://github.com/Kotlin/kotlinx.coroutines)
-- **`kotlinx-coroutines-jdk8`** 1.7.2 [API docs](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-jdk8/index.html)
-- **`kotlinx-serialization-core`** 1.5.1 [Guide](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serialization-guide.md), [API docs](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-core/index.html), [GitHub](https://github.com/Kotlin/kotlinx.serialization)
-- **`kotlinx-serialization-json`** 1.5.1 [API docs](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-json/index.html)
-- **`kotlinx-serialization-cbor`** 1.5.1 [API docs](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-cbor/index.html)
-- **`atomicfu`** 0.21.0 [GitHub](https://github.com/Kotlin/kotlinx.atomicfu)
-- **`kotlinx-datetime`** 0.4.0 [GitHub](https://github.com/Kotlin/kotlinx-datetime)
+- **`kotlinx-coroutines-core`** ${KOTLINX_COROUTINES_CORE_VERSION} [Guide](https://kotlinlang.org/docs/coroutines-guide.html), [API docs](https://kotlin.github.io/kotlinx.coroutines/), [GitHub](https://github.com/Kotlin/kotlinx.coroutines)
+- **`kotlinx-coroutines-jdk8`** ${KOTLINX_COROUTINES_CORE_VERSION} [API docs](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-jdk8/index.html)
+- **`kotlinx-serialization-core`** ${KOTLINX_SERIALIZATION_CORE_JVM_VERSION} [Guide](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serialization-guide.md), [API docs](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-core/index.html), [GitHub](https://github.com/Kotlin/kotlinx.serialization)
+- **`kotlinx-serialization-json`** ${KOTLINX_SERIALIZATION_JSON_JVM_VERSION} [API docs](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-json/index.html)
+- **`kotlinx-serialization-cbor`** ${KOTLINX_SERIALIZATION_CBOR_JVM_VERSION} [API docs](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-cbor/index.html)
+- **`atomicfu`** ${ATOMICFU_JVM_VERSION} [GitHub](https://github.com/Kotlin/kotlinx.atomicfu)
+- **`kotlinx-datetime`** ${KOTLINX_DATETIME_JVM_VERSION} [GitHub](https://github.com/Kotlin/kotlinx-datetime)
 
 ## Available Versions
 
